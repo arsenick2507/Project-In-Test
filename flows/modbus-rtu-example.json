@@ -1,0 +1,35 @@
+﻿[
+  {
+    "id": "modbus-rtu-flow",
+    "type": "tab",
+    "label": "Modbus RTU Input",
+    "disabled": false
+  },
+  {
+    "id": "inject-modbus-read",
+    "type": "inject",
+    "z": "modbus-rtu-flow",
+    "name": "Read Modbus every 5s",
+    "repeat": "5",
+    "once": false,
+    "payload": "1",
+    "payloadType": "num",
+    "x": 100,
+    "y": 60,
+    "wires": [["modbus-flex-getter"]]
+  },
+  {
+    "id": "modbus-flex-getter",
+    "type": "modbus-flex-getter",
+    "z": "modbus-rtu-flow",
+    "name": "Read Holding Registers",
+    "unitid": "1",
+    "dataType": "HoldingRegisters",
+    "adrStartAddress": "0",
+    "adrQuantity": "10",
+    "server": "modbus-config",
+    "x": 320,
+    "y": 60,
+    "wires": [["debug-modbus", "format-modbus-data"]]
+  }
+]

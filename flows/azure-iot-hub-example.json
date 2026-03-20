@@ -1,0 +1,21 @@
+﻿[
+  {
+    "id": "azure-iot-hub-flow",
+    "type": "tab",
+    "label": "Azure IoT Hub Integration",
+    "disabled": false
+  },
+  {
+    "id": "inject-sensor-data",
+    "type": "inject",
+    "z": "azure-iot-hub-flow",
+    "name": "Simulate Sensor Data",
+    "repeat": "10",
+    "once": false,
+    "payload": "{\"temperature\": 22.5, \"humidity\": 65, \"deviceId\": \"cloudgate-001\"}",
+    "payloadType": "json",
+    "x": 120,
+    "y": 80,
+    "wires": [["prepare-azure-payload"]]
+  }
+]
